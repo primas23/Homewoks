@@ -1,94 +1,129 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-class ExceptionsHomework
+﻿// <copyright file="ExceptionsHomework.cs" company="Primas">
+//     Company copyright tag.
+// </copyright>
+namespace Exceptions_Homework
 {
-    public static T[] Subsequence<T>(T[] arr, int startIndex, int count)
-    {
-        List<T> result = new List<T>();
-        for (int i = startIndex; i < startIndex + count; i++)
-        {
-            result.Add(arr[i]);
-        }
-        return result.ToArray();
-    }
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
 
-    public static string ExtractEnding(string str, int count)
+    /// <summary>
+    /// The Exceptions Homework
+    /// </summary>
+    public class ExceptionsHomework
     {
-        if (count > str.Length)
+        /// <summary>
+        /// Makes a subsequence of array
+        /// </summary>
+        /// <typeparam name="T">Any type</typeparam>
+        /// <param name="arr">The array.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns>An array of extracted elements</returns>
+        public static T[] Subsequence<T>(T[] arr, int startIndex, int count)
         {
-            return "Invalid count!";
-        }
-
-        StringBuilder result = new StringBuilder();
-        for (int i = str.Length - count; i < str.Length; i++)
-        {
-            result.Append(str[i]);
-        }
-        return result.ToString();
-    }
-
-    public static void CheckPrime(int number)
-    {
-        for (int divisor = 2; divisor <= Math.Sqrt(number); divisor++)
-        {
-            if (number % divisor == 0)
+            List<T> result = new List<T>();
+            for (int i = startIndex; i < startIndex + count; i++)
             {
-                throw new Exception("The number is not prime!");
+                result.Add(arr[i]);
+            }
+
+            return result.ToArray();
+        }
+
+        /// <summary>
+        /// Extracts the ending.
+        /// </summary>
+        /// <param name="str">The string from which to extract.</param>
+        /// <param name="count">The count of the string it should return.</param>
+        /// <returns>Extracted string</returns>
+        public static string ExtractEnding(string str, int count)
+        {
+            if (count > str.Length)
+            {
+                return "Invalid count!";
+            }
+
+            StringBuilder result = new StringBuilder();
+            for (int i = str.Length - count; i < str.Length; i++)
+            {
+                result.Append(str[i]);
+            }
+
+            return result.ToString();
+        }
+
+        /// <summary>
+        /// Checks if the number is prime.
+        /// </summary>
+        /// <param name="number">The number.</param>
+        /// <exception cref="Exception">The number is not prime!</exception>
+        public static void CheckIfPrime(int number)
+        {
+            for (int divisor = 2; divisor <= Math.Sqrt(number); divisor++)
+            {
+                if (number % divisor == 0)
+                {
+                    throw new Exception("The number is not prime!");
+                }
             }
         }
-    }
 
-    static void Main()
-    {
-        var substr = Subsequence("Hello!".ToCharArray(), 2, 3);
-        Console.WriteLine(substr);
-
-        var subarr = Subsequence(new int[] { -1, 3, 2, 1 }, 0, 2);
-        Console.WriteLine(String.Join(" ", subarr));
-
-        var allarr = Subsequence(new int[] { -1, 3, 2, 1 }, 0, 4);
-        Console.WriteLine(String.Join(" ", allarr));
-
-        var emptyarr = Subsequence(new int[] { -1, 3, 2, 1 }, 0, 0);
-        Console.WriteLine(String.Join(" ", emptyarr));
-
-        Console.WriteLine(ExtractEnding("I love C#", 2));
-        Console.WriteLine(ExtractEnding("Nakov", 4));
-        Console.WriteLine(ExtractEnding("beer", 4));
-        Console.WriteLine(ExtractEnding("Hi", 100));
-
-        try
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        public static void Main()
         {
-            CheckPrime(23);
-            Console.WriteLine("23 is prime.");
+            var substr = Subsequence("Hello!".ToCharArray(), 2, 3);
+            Console.WriteLine(substr);
+
+            var subarr = Subsequence(new int[] { -1, 3, 2, 1 }, 0, 2);
+            Console.WriteLine(string.Join(" ", subarr));
+
+            var allarr = Subsequence(new int[] { -1, 3, 2, 1 }, 0, 4);
+            Console.WriteLine(string.Join(" ", allarr));
+
+            var emptyarr = Subsequence(new int[] { -1, 3, 2, 1 }, 0, 0);
+            Console.WriteLine(string.Join(" ", emptyarr));
+
+            Console.WriteLine(ExtractEnding("I love C#", 2));
+            Console.WriteLine(ExtractEnding("Nakov", 4));
+            Console.WriteLine(ExtractEnding("beer", 4));
+            Console.WriteLine(ExtractEnding("Hi", 100));
+
+            try
+            {
+                CheckIfPrime(23);
+                Console.WriteLine("23 is prime.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("23 is not prime");
+            }
+
+            try
+            {
+                CheckIfPrime(33);
+                Console.WriteLine("33 is prime.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("33 is not prime");
+            }
+
+            List<Exam> peterExams = new List<Exam>()
+            {
+                new SimpleMathExam(2),
+                new CSharpExam(55),
+                new CSharpExam(100),
+                new SimpleMathExam(1),
+                new CSharpExam(0),
+            };
+
+            Student peter = new Student("Peter", "Petrov", peterExams);
+            double peterAverageResult = peter.CalcAverageExamResultInPercents();
+
+            Console.WriteLine("Average results = {0:p0}", peterAverageResult);
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine("23 is not prime");
-        }
-
-        try
-        {
-            CheckPrime(33);
-            Console.WriteLine("33 is prime.");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("33 is not prime");
-        }
-
-        List<Exam> peterExams = new List<Exam>()
-        {
-            new SimpleMathExam(2),
-            new CSharpExam(55),
-            new CSharpExam(100),
-            new SimpleMathExam(1),
-            new CSharpExam(0),
-        };
-        Student peter = new Student("Peter", "Petrov", peterExams);
-        double peterAverageResult = peter.CalcAverageExamResultInPercents();
-        Console.WriteLine("Average results = {0:p0}", peterAverageResult);
     }
 }

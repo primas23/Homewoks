@@ -1,28 +1,54 @@
-﻿using System;
-
-public class CSharpExam : Exam
+﻿// <copyright file="CSharpExam.cs" company="Primas">
+//     Company copyright tag.
+// </copyright>
+namespace Exceptions_Homework
 {
-    public int Score { get; private set; }
+    using System;
 
-    public CSharpExam(int score)
+    /// <summary>
+    /// The C# exam class
+    /// </summary>
+    /// <seealso cref="Exceptions_Homework.Exam" />
+    public class CSharpExam : Exam
     {
-        if (score < 0)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CSharpExam"/> class.
+        /// </summary>
+        /// <param name="score">The score.</param>
+        /// <exception cref="NullReferenceException"></exception>
+        public CSharpExam(int score)
         {
-            throw new NullReferenceException();
+            if (score < 0)
+            {
+                throw new NullReferenceException();
+            }
+
+            this.Score = score;
         }
 
-        this.Score = score;
-    }
+        /// <summary>
+        /// Gets the score.
+        /// </summary>
+        /// <value>
+        /// The score.
+        /// </value>
+        public int Score { get; private set; }
 
-    public override ExamResult Check()
-    {
-        if (Score < 0 || Score > 100)
+        /// <summary>
+        /// Checks this instance.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public override ExamResult Check()
         {
-            throw new InvalidOperationException();
-        }
-        else
-        {
-            return new ExamResult(this.Score, 0, 100, "Exam results calculated by score.");
+            if (this.Score < 0 || this.Score > 100)
+            {
+                throw new InvalidOperationException();
+            }
+            else
+            {
+                return new ExamResult(this.Score, 0, 100, "Exam results calculated by score.");
+            }
         }
     }
 }

@@ -1,6 +1,17 @@
-﻿using System;
-
-public abstract class Exam
+﻿// <copyright file="Exam.cs" company="Primas">
+//     Company copyright tag.
+// </copyright>
+namespace Exceptions_Homework
 {
-    public abstract ExamResult Check();
+    /// <summary>
+    /// The Exam class
+    /// </summary>
+    public abstract class Exam
+    {
+        /// <summary>
+        /// Checks this instance.
+        /// </summary>
+        /// <returns></returns>
+        public abstract ExamResult Check();
+    }
 }

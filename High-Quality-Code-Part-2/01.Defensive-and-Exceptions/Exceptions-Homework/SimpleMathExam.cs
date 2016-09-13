@@ -1,38 +1,61 @@
-﻿using System;
-
-public class SimpleMathExam : Exam
+﻿// <copyright file="SimpleMathExam.cs" company="Primas">
+//     Company copyright tag.
+// </copyright>
+namespace Exceptions_Homework
 {
-    public int ProblemsSolved { get; private set; }
-
-    public SimpleMathExam(int problemsSolved)
+    /// <summary>
+    /// SimpleMathExam class
+    /// </summary>
+    /// <seealso cref="Exceptions_Homework.Exam" />
+    public class SimpleMathExam : Exam
     {
-        if (problemsSolved < 0)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SimpleMathExam"/> class.
+        /// </summary>
+        /// <param name="problemsSolved">The problems solved.</param>
+        public SimpleMathExam(int problemsSolved)
         {
-            problemsSolved = 0;
-        }
-        if (problemsSolved > 10)
-        {
-            problemsSolved = 10;
+            if (problemsSolved < 0)
+            {
+                problemsSolved = 0;
+            }
+
+            if (problemsSolved > 10)
+            {
+                problemsSolved = 10;
+            }
+
+            this.ProblemsSolved = problemsSolved;
         }
 
-        this.ProblemsSolved = problemsSolved;
-    }
+        /// <summary>
+        /// Gets the problems solved.
+        /// </summary>
+        /// <value>
+        /// The problems solved.
+        /// </value>
+        public int ProblemsSolved { get; private set; }
 
-    public override ExamResult Check()
-    {
-        if (ProblemsSolved == 0)
+        /// <summary>
+        /// Checks this instance.
+        /// </summary>
+        /// <returns></returns>
+        public override ExamResult Check()
         {
-            return new ExamResult(2, 2, 6, "Bad result: nothing done.");
-        }
-        else if (ProblemsSolved == 1)
-        {
-            return new ExamResult(4, 2, 6, "Average result: nothing done.");
-        }
-        else if (ProblemsSolved == 2)
-        {
-            return new ExamResult(6, 2, 6, "Average result: nothing done.");
-        }
+            if (this.ProblemsSolved == 0)
+            {
+                return new ExamResult(2, 2, 6, "Bad result: nothing done.");
+            }
+            else if (this.ProblemsSolved == 1)
+            {
+                return new ExamResult(4, 2, 6, "Average result: nothing done.");
+            }
+            else if (this.ProblemsSolved == 2)
+            {
+                return new ExamResult(6, 2, 6, "Average result: nothing done.");
+            }
 
-        return new ExamResult(0, 0, 0, "Invalid number of problems solved!");
+            return new ExamResult(0, 0, 0, "Invalid number of problems solved!");
+        }
     }
 }
