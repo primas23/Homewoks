@@ -113,7 +113,7 @@ namespace Assertions_Homework
         /// </summary>
         private static void Main()
         {
-            int[] arr = new int[] { 3, -1, 15, 4, 17, 2, 33, 0 };
+            int[] arr = new int[] { 3, -1, 15, 4, 17, 2, 33, 0 }; // TODO: Finish the homework
 
             Console.WriteLine("arr = [{0}]", string.Join(", ", arr));
 
