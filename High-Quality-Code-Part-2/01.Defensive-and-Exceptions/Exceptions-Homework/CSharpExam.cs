@@ -15,12 +15,12 @@ namespace Exceptions_Homework
         /// Initializes a new instance of the <see cref="CSharpExam"/> class.
         /// </summary>
         /// <param name="score">The score.</param>
-        /// <exception cref="NullReferenceException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException">The score must be larger then 0!</exception>
         public CSharpExam(int score)
         {
             if (score < 0)
             {
-                throw new NullReferenceException();
+                throw new ArgumentOutOfRangeException("The score must be bigger then 0!");
             }
 
             this.Score = score;
@@ -35,15 +35,17 @@ namespace Exceptions_Homework
         public int Score { get; private set; }
 
         /// <summary>
-        /// Checks this instance.
+        /// Checks this Exam results.
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <returns>
+        /// The Exam result
+        /// </returns>
+        /// <exception cref="InvalidOperationException">The score is must be bigger than 0 and less then 100</exception>
         public override ExamResult Check()
         {
             if (this.Score < 0 || this.Score > 100)
             {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("The score is must be bigger than 0 and less then 100");
             }
             else
             {

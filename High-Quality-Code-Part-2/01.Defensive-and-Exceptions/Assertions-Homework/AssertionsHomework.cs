@@ -4,6 +4,7 @@
 namespace Assertions_Homework
 {
     using System;
+    using System.Diagnostics;
 
     /// <summary>
     /// The Assertions Homework
@@ -17,6 +18,12 @@ namespace Assertions_Homework
         /// <param name="arr">The array.</param>
         public static void SelectionSort<T>(T[] arr) where T : IComparable<T>
         {
+            bool isArrayWithElements = arr.Length > 0;
+            Debug.Assert(isArrayWithElements, "The Array is empty!");
+
+            bool isArrayWithOneElements = arr.Length == 1;
+            Debug.Assert(isArrayWithOneElements, "The Array is with only one element!");
+
             for (int index = 0; index < arr.Length - 1; index++)
             {
                 int minElementIndex = FindMinElementIndex(arr, index, arr.Length - 1);
@@ -113,7 +120,7 @@ namespace Assertions_Homework
         /// </summary>
         private static void Main()
         {
-            int[] arr = new int[] { 3, -1, 15, 4, 17, 2, 33, 0 }; // TODO: Finish the homework
+            int[] arr = new int[] { 3, -1, 15, 4, 17, 2, 33, 0 };
 
             Console.WriteLine("arr = [{0}]", string.Join(", ", arr));
 

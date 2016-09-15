@@ -3,6 +3,8 @@
 // </copyright>
 namespace Exceptions_Homework
 {
+    using System;
+
     /// <summary>
     /// SimpleMathExam class
     /// </summary>
@@ -12,17 +14,17 @@ namespace Exceptions_Homework
         /// <summary>
         /// Initializes a new instance of the <see cref="SimpleMathExam"/> class.
         /// </summary>
-        /// <param name="problemsSolved">The problems solved.</param>
+        /// <param name="problemsSolved">The number of the solved problems.</param>
         public SimpleMathExam(int problemsSolved)
         {
             if (problemsSolved < 0)
             {
-                problemsSolved = 0;
+                throw new ArgumentOutOfRangeException("The number of problems can not be less than 0!");
             }
 
-            if (problemsSolved > 10)
+            if (problemsSolved > 2)
             {
-                problemsSolved = 10;
+                throw new ArgumentOutOfRangeException("The number of problems can not be greather than 2");
             }
 
             this.ProblemsSolved = problemsSolved;
@@ -39,7 +41,7 @@ namespace Exceptions_Homework
         /// <summary>
         /// Checks this instance.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The Exam result</returns>
         public override ExamResult Check()
         {
             if (this.ProblemsSolved == 0)
@@ -55,7 +57,7 @@ namespace Exceptions_Homework
                 return new ExamResult(6, 2, 6, "Average result: nothing done.");
             }
 
-            return new ExamResult(0, 0, 0, "Invalid number of problems solved!");
+            throw new ArgumentOutOfRangeException("Invalid number of problems solved!");
         }
     }
 }

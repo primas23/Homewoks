@@ -11,7 +11,7 @@ namespace Exceptions_Homework
         /// <summary>
         /// Checks this instance.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The Exam result</returns>
         public abstract ExamResult Check();
     }
 }

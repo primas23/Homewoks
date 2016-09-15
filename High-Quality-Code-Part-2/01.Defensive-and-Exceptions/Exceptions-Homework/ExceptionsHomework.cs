@@ -41,7 +41,7 @@ namespace Exceptions_Homework
         {
             if (count > str.Length)
             {
-                return "Invalid count!";
+                throw new ArgumentOutOfRangeException("The string you supplyed is shorter then the string you wish to extract!");
             }
 
             StringBuilder result = new StringBuilder();
@@ -58,15 +58,18 @@ namespace Exceptions_Homework
         /// </summary>
         /// <param name="number">The number.</param>
         /// <exception cref="Exception">The number is not prime!</exception>
-        public static void CheckIfPrime(int number)
+        /// <returns>Returns if the number is prime</returns>
+        public static bool CheckIfPrime(int number)
         {
             for (int divisor = 2; divisor <= Math.Sqrt(number); divisor++)
             {
                 if (number % divisor == 0)
                 {
-                    throw new Exception("The number is not prime!");
+                    return false;
                 }
             }
+
+            return true;
         }
 
         /// <summary>
@@ -90,27 +93,17 @@ namespace Exceptions_Homework
             Console.WriteLine(ExtractEnding("Nakov", 4));
             Console.WriteLine(ExtractEnding("beer", 4));
             Console.WriteLine(ExtractEnding("Hi", 100));
-
-            try
+            
+            if (CheckIfPrime(23))
             {
-                CheckIfPrime(23);
                 Console.WriteLine("23 is prime.");
             }
-            catch (Exception ex)
+            
+            if (CheckIfPrime(33))
             {
-                Console.WriteLine("23 is not prime");
-            }
-
-            try
-            {
-                CheckIfPrime(33);
                 Console.WriteLine("33 is prime.");
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("33 is not prime");
-            }
-
+            
             List<Exam> peterExams = new List<Exam>()
             {
                 new SimpleMathExam(2),

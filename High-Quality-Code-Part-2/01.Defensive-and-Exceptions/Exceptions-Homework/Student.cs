@@ -20,16 +20,14 @@ namespace Exceptions_Homework
         /// <param name="exams">The exams.</param>
         public Student(string firstName, string lastName, IList<Exam> exams = null)
         {
-            if (firstName == null)
+            if (string.IsNullOrWhiteSpace(firstName))
             {
-                Console.WriteLine("Invalid first name!");
-                Environment.Exit(0);
+                throw new ArgumentNullException("Invalid first name!");
             }
 
-            if (lastName == null)
+            if (string.IsNullOrWhiteSpace(lastName))
             {
-                Console.WriteLine("Invalid first name!");
-                Environment.Exit(0);
+                throw new ArgumentNullException("Invalid last name!");
             }
 
             this.FirstName = firstName;
@@ -64,19 +62,18 @@ namespace Exceptions_Homework
         /// <summary>
         /// Checks the exams.
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="Exception">Wow! Error happened!!!</exception>
+        /// <returns>IList of exams</returns>
+        /// <exception cref="Exception">Exams are null</exception>
         public IList<ExamResult> CheckExams()
         {
             if (this.Exams == null)
             {
-                throw new Exception("Wow! Error happened!!!");
+                throw new NullReferenceException("Exams are null");
             }
 
             if (this.Exams.Count == 0)
             {
-                Console.WriteLine("The student has no exams!");
-                return null;
+                throw new ArgumentNullException("The student has no exams!");
             }
 
             IList<ExamResult> results = new List<ExamResult>();
@@ -91,20 +88,19 @@ namespace Exceptions_Homework
         /// <summary>
         /// Calculates the average exam result in percentage.
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <returns>The average exam result.</returns>
+        /// <exception cref="AggregateException">Cannot calculate average on missing exams</exception>
+        /// <exception cref="ArgumentNullException">No exams</exception>
         public double CalcAverageExamResultInPercents()
         {
             if (this.Exams == null)
             {
-                // Cannot calculate average on missing exams
-                throw new Exception();
+                throw new AggregateException("Cannot calculate average on missing exams");
             }
 
             if (this.Exams.Count == 0)
             {
-                // No exams --> return -1;
-                return -1;
+                throw new ArgumentNullException("No exams");
             }
 
             double[] examScore = new double[this.Exams.Count];
