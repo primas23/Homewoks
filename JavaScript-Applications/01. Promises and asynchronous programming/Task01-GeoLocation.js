@@ -1,4 +1,4 @@
-(function () {
+function task01() {
     var mapDiv = document.getElementById("map");
     document.getElementById('titleId').innerText = 'Geolocation';
     mapDiv.innerHTML = 'No map';
@@ -35,5 +35,4 @@
     getGeolocationPositionPromise()
         .then(parseLatAndLongCoords)
         .then(createGeolocationImage);
-
-} ());
+}

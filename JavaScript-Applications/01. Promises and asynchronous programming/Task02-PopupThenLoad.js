@@ -1,4 +1,4 @@
-(function () {
+function task02() {
     var divElemnt = document.getElementById('map');
     document.getElementById('titleId').innerText = 'Popup';
     divElemnt.innerText = 'Testing the code';
@@ -38,5 +38,4 @@
     );
 
     promisPopup();
-
-} ());
+}
