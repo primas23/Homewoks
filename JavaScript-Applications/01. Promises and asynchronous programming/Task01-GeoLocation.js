@@ -1,5 +1,7 @@
 (function () {
     var mapDiv = document.getElementById("map");
+    document.getElementById('titleId').innerText = 'Geolocation';
+    mapDiv.innerHTML = 'No map';
 
     function getGeolocationPositionPromise() {
         return new Promise((resolve, reject) => {
