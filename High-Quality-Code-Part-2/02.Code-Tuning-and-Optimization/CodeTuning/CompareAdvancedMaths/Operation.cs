@@ -3,17 +3,17 @@
     public enum Operation
     {
         /// <summary>
-        /// The square
+        /// The square.
         /// </summary>
         Square,
 
         /// <summary>
-        /// The logarithm
+        /// The logarithm.
         /// </summary>
         Logarithm,
 
         /// <summary>
-        /// The sinus
+        /// The sinus.
         /// </summary>
         Sinus
     }
