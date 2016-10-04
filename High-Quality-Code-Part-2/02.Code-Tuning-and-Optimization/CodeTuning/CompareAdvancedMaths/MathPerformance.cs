@@ -3,6 +3,9 @@
     using System;
     using System.Diagnostics;
 
+    /// <summary>
+    /// The Math class
+    /// </summary>
     public static class MathPerformance
     {
         private const double DOUBLE_VALUE = 50;
