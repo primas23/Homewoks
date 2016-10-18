@@ -5,7 +5,7 @@
     <artist>Linkin Park</artist>
     <year>2010</year>
     <producer>Mike Shinoda</producer>
-    <price>priceless</price>
+    <price>7</price>
     <songs>
       <song>
         <title>The Requiem</title>
@@ -50,7 +50,7 @@
     <artist>Linkin Park</artist>
     <year>2010</year>
     <producer>Don Gilmore</producer>
-    <price>priceless</price>
+    <price>15</price>
     <songs>
       <song>
         <title>Don't Stay</title>
@@ -87,7 +87,7 @@
     <artist>Linkin Park</artist>
     <year>2010</year>
     <producer>Don Gilmore</producer>
-    <price>priceless</price>
+    <price>19</price>
     <songs>
       <song>
         <title>Papercut</title>
