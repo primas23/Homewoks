@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{176A8407-1E1D-4397-995B-6B66C4494769}"
+	ProjectSection(SolutionItems) = preProject
+		01. What does the XML language represent What is it used for.txt = 01. What does the XML language represent What is it used for.txt
+		02. students.xml = 02. students.xml
+		03. What do namespaces represent in an XML document What are they used for.txt = 03. What do namespaces represent in an XML document What are they used for.txt
+		students.xsd = students.xsd
+		students.xsl = students.xsl
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
