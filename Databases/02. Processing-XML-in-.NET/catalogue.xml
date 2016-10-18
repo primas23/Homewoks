@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<catalogue>
+  <album>
+    <name>A Thousand Suns</name>
+    <artist>Linkin Park</artist>
+    <year>2010</year>
+    <producer>Mike Shinoda</producer>
+    <price>priceless</price>
+    <songs>
+      <song>
+        <title>The Requiem</title>
+        <duration>2:01</duration>
+      </song>
+      <song>
+        <title>Burning in the Skies</title>
+        <duration>4:13</duration>
+      </song>
+      <song>
+        <title>When They Come for Me</title>
+        <duration>4:55</duration>
+      </song>
+      <song>
+        <title>Robot Boy</title>
+        <duration>4:28</duration>
+      </song>
+      <song>
+        <title>Waiting for the End</title>
+        <duration>3:51</duration>
+      </song>
+      <song>
+        <title>Blackout</title>
+        <duration>4:39</duration>
+      </song>
+      <song>
+        <title>Iridescent</title>
+        <duration>4:56</duration>
+      </song>
+      <song>
+        <title>The Catalyst</title>
+        <duration>5:39</duration>
+      </song>
+      <song>
+        <title>The Messenger</title>
+        <duration>3:01</duration>
+      </song>
+    </songs>
+  </album>
+  <album>
+    <name>Meteora</name>
+    <artist>Linkin Park</artist>
+    <year>2010</year>
+    <producer>Don Gilmore</producer>
+    <price>priceless</price>
+    <songs>
+      <song>
+        <title>Don't Stay</title>
+        <duration>3:07</duration>
+      </song>
+      <song>
+        <title>Somewhere I Belong</title>
+        <duration>3:33</duration>
+      </song>
+      <song>
+        <title>Lying From You</title>
+        <duration>2:55</duration>
+      </song>
+      <song>
+        <title>Hit the Floor</title>
+        <duration>2:44</duration>
+      </song>
+      <song>
+        <title>Breaking the Habit</title>
+        <duration>3:16</duration>
+      </song>
+      <song>
+        <title>From the Inside</title>
+        <duration>2:55</duration>
+      </song>
+      <song>
+        <title>Numb</title>
+        <duration>3:07</duration>
+      </song>
+    </songs>
+  </album>
+  <album>
+    <name>Hybrid Theory</name>
+    <artist>Linkin Park</artist>
+    <year>2010</year>
+    <producer>Don Gilmore</producer>
+    <price>priceless</price>
+    <songs>
+      <song>
+        <title>Papercut</title>
+        <duration>3:04</duration>
+      </song>
+      <song>
+        <title>One Step Closer</title>
+        <duration>2:35</duration>
+      </song>
+      <song>
+        <title>With You</title>
+        <duration>3:23</duration>
+      </song>
+      <song>
+        <title>Crawling</title>
+        <duration>3:29</duration>
+      </song>
+      <song>
+        <title>In the End</title>
+        <duration>3:36</duration>
+      </song>
+      <song>
+        <title>A Place for My Head</title>
+        <duration>3:04</duration>
+      </song>
+    </songs>
+  </album>
+</catalogue>
