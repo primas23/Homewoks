@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dir Name="02. Processing-XML-in-.NET">
+  <Dir Name=".vs">
+    <Dir Name="02. Processing-XML-in-.NET">
+      <Dir Name="v14">
+        <File Name=".suo" Size="71680" />
+      </Dir>
+    </Dir>
+  </Dir>
+  <Dir Name="Console">
+    <Dir Name="bin">
+      <Dir Name="Debug">
+        <File Name="Console.exe" Size="7680" />
+        <File Name="Console.exe.config" Size="187" />
+        <File Name="Console.pdb" Size="13824" />
+        <File Name="Console.vshost.exe" Size="22696" />
+        <File Name="Console.vshost.exe.config" Size="187" />
+        <File Name="HelperLibrary.dll" Size="13312" />
+        <File Name="HelperLibrary.pdb" Size="19968" />
+      </Dir>
+      <Dir Name="Release" />
+    </Dir>
+    <Dir Name="obj">
+      <Dir Name="Debug">
+        <Dir Name="TempPE" />
+        <File Name="Console.csproj.FileListAbsolute.txt" Size="948" />
+        <File Name="Console.csprojResolveAssemblyReference.cache" Size="7238" />
+        <File Name="Console.exe" Size="7680" />
+        <File Name="Console.pdb" Size="13824" />
+        <File Name="DesignTimeResolveAssemblyReferencesInput.cache" Size="6988" />
+        <File Name="TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" Size="0" />
+        <File Name="TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" Size="0" />
+        <File Name="TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" Size="0" />
+      </Dir>
+    </Dir>
+    <Dir Name="Properties">
+      <File Name="AssemblyInfo.cs" Size="1426" />
+    </Dir>
+    <File Name="App.config" Size="187" />
+    <File Name="Console.csproj" Size="2828" />
+    <File Name="Startup.cs" Size="5190" />
+  </Dir>
+  <Dir Name="HelperLibrary">
+    <Dir Name="bin">
+      <Dir Name="Debug">
+        <File Name="HelperLibrary.dll" Size="13312" />
+        <File Name="HelperLibrary.pdb" Size="19968" />
+      </Dir>
+      <Dir Name="Release" />
+    </Dir>
+    <Dir Name="obj">
+      <Dir Name="Debug">
+        <Dir Name="TempPE" />
+        <File Name="DesignTimeResolveAssemblyReferencesInput.cache" Size="6767" />
+        <File Name="HelperLibrary.csproj.FileListAbsolute.txt" Size="653" />
+        <File Name="HelperLibrary.csprojResolveAssemblyReference.cache" Size="1904" />
+        <File Name="HelperLibrary.dll" Size="13312" />
+        <File Name="HelperLibrary.pdb" Size="19968" />
+        <File Name="TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" Size="0" />
+        <File Name="TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" Size="0" />
+        <File Name="TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" Size="0" />
+      </Dir>
+    </Dir>
+    <Dir Name="Properties">
+      <File Name="AssemblyInfo.cs" Size="1438" />
+    </Dir>
+    <File Name="HelperLibrary.csproj" Size="2464" />
+    <File Name="StyleCop.Cache" Size="12956" />
+    <File Name="XmlHelpers.cs" Size="19079" />
+  </Dir>
+  <File Name="02. Processing-XML-in-.NET.sln" Size="1481" />
+  <File Name="albums.xml" Size="267" />
+  <File Name="catalogue.xml" Size="2905" />
+  <File Name="phoneBook.txt" Size="115" />
+  <File Name="phoneBook.xml" Size="401" />
+  <File Name="traverseWithXElement.xml" Size="3347" />
+  <File Name="traverseWithXmlWriter.xml" Size="3340" />
+</Dir>

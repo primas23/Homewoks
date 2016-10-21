@@ -1,6 +1,9 @@
 ﻿// <copyright file="XmlHelpers.cs" company="Primas">
 //     Company copyright tag.
 // </copyright>
+
+using System.IO;
+
 namespace HelperLibrary
 {
     using System;
@@ -300,6 +303,137 @@ namespace HelperLibrary
                                                     new XElement(Duration, "3:04"))))));
 
             doc.Save(this._path);
+        }
+
+        /// <summary>
+        /// Creates the XML phonebook.
+        /// </summary>
+        public static void CreateXmlPhonebook()
+        {
+            int lineNumber = 0;
+            using (var writer = new XmlTextWriter("../../../phoneBook.xml", Encoding.UTF8))
+            {
+                writer.WriteStartDocument();
+                writer.WriteStartElement("entries");
+                using (var reader = new StreamReader("../../../phoneBook.txt"))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        switch (lineNumber % 3)
+                        {
+                            case 0:
+                                writer.WriteStartElement("entry");
+                                writer.WriteElementString("name", reader.ReadLine());
+                                break;
+                            case 1:
+                                writer.WriteElementString("address", reader.ReadLine());
+                                break;
+                            case 2:
+                                writer.WriteElementString("phone", reader.ReadLine());
+                                writer.WriteEndElement();
+                                break;
+                        }
+
+                        lineNumber++;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Creates the albums XML.
+        /// </summary>
+        public static void CreateAlbumsXml()
+        {
+            using (var writer = new XmlTextWriter("../../../albums.xml", Encoding.UTF8))
+            {
+                writer.WriteStartDocument();
+                writer.WriteStartElement("albums");
+
+                using (var reader = XmlReader.Create("../../../catalogue.xml"))
+                {
+                    while (reader.Read())
+                    {
+                        switch (reader.Name)
+                        {
+                            case "album":
+                                if (reader.IsStartElement())
+                                {
+                                    writer.WriteStartElement("album");
+                                }
+
+                                break;
+                            case "name":
+                                writer.WriteElementString("title", reader.ReadElementContentAsString());
+                                break;
+                            case "artist":
+                                writer.WriteElementString("artist", reader.ReadElementContentAsString());
+                                writer.WriteEndElement();
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Creates the file XML.
+        /// </summary>
+        public static void CreateFileXml()
+        {
+            using (var writer = new XmlTextWriter("../../../traverseWithXmlWriter.xml", Encoding.UTF8))
+            {
+                writer.WriteStartDocument();
+                writer.WriteStartElement("DirectoriesRoot");
+                CreateFileSystemXmlTreeUsingXmlWriter("../../../..", writer);
+                writer.WriteEndElement();
+                writer.WriteEndDocument();
+            }
+        }
+
+        /// <summary>
+        /// Creates the file system XML tree using XML writer.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="writer">The writer.</param>
+        private static void CreateFileSystemXmlTreeUsingXmlWriter(string source, XmlWriter writer)
+        {
+            var directoryInfo = new DirectoryInfo(source);
+            var folders = directoryInfo.GetDirectories();
+
+            foreach (var folder in folders)
+            {
+                writer.WriteStartElement("Dir");
+                writer.WriteAttributeString("Name", folder.Name);
+                CreateFileSystemXmlTreeUsingXmlWriter(folder.FullName, writer);
+                writer.WriteEndElement();
+            }
+
+            var files = directoryInfo.GetFiles();
+            foreach (var file in files)
+            {
+                writer.WriteStartElement("File");
+                writer.WriteAttributeString("Name", file.Name);
+                writer.WriteAttributeString("Size", file.Length.ToString());
+                writer.WriteEndElement();
+            }
+        }
+
+        /// <summary>
+        /// Creates the file system XML tree.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <returns></returns>
+        public static XElement CreateFileSystemXmlTree(string source)
+        {
+            DirectoryInfo directoryInfo = new DirectoryInfo(source);
+            var result = new XElement(
+                "Dir",
+                new XAttribute("Name", directoryInfo.Name),
+                Directory.GetDirectories(source).Select(dir => CreateFileSystemXmlTree(dir)),
+                directoryInfo.GetFiles().Select(fileName => new XElement("File", new XAttribute("Name", fileName.Name), new XAttribute("Size", fileName.Length))));
+
+            return result;
         }
     }
 }

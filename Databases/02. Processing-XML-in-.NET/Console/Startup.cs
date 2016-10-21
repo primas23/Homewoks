@@ -1,9 +1,6 @@
 ﻿// <copyright file="Startup.cs" company="Primas Entertainment">
 //     Company copyright tag.
 // </copyright>
-
-using System.Collections;
-
 namespace Console
 {
     using System;
@@ -61,12 +58,60 @@ namespace Console
             // Task 06
             // Rewrite the same using XDocument and LINQ query.
             XDocument doc = XDocument.Load(_path);
-            IEnumerable<string> songTitlesUsingLinq = from songs 
+            IEnumerable<string> songTitlesUsingLinq = from songs
                                                       in doc.Descendants("title")
                                                       select songs.Value.Trim();
 
             Console.WriteLine("Titles: " + string.Join(", ", songTitlesUsingLinq));
             XmlHelpers.PrintSeparator();
+
+            // Task 07
+            // In a text file we are given the name, address and phone number of given person (each at a single line).
+            // Write a program, which creates new XML document, which contains these data in structured XML format.
+            XmlHelpers.CreateXmlPhonebook();
+
+            // Task 08
+            // Write a program, which (using XmlReader and XmlWriter) reads the file catalog.xml and creates the file album.xml, in 
+            // which stores in appropriate way the names of all albums and their authors.
+            XmlHelpers.CreateAlbumsXml();
+
+            // Task 09
+            // Write a program to traverse given directory and write to a XML file its contents together with all subdirectories and files.
+            // Use tags <file> and <dir> with appropriate attributes.
+            // For the generation of the XML document use the class XmlWriter.
+            XmlHelpers.CreateFileXml();
+
+            // Task 10
+            // Rewrite the last exercises using XDocument, XElement and XAttribute.
+            XDocument documentA = new XDocument();
+            documentA.Add(XmlHelpers.CreateFileSystemXmlTree("../../../ "));
+            documentA.Save("../../../traverseWithXElement.xml");
+
+            // Task 11
+            // Write a program, which extract from the file catalog.xml the prices for all albums, published 5 years ago or earlier.
+            XmlDocument documentEleven = new XmlDocument();
+            documentEleven.Load("../../../catalogue.xml");
+            var docRoot = documentEleven.DocumentElement;
+            var oldAlbumsPrices = docRoot.SelectNodes("album/price[../year/text() < 2011]");
+
+            for (int i = 0; i < oldAlbumsPrices.Count; i++)
+            {
+                var element = oldAlbumsPrices[i];
+                Console.WriteLine(element.InnerText);
+            }
+
+            // Task 12
+            // Rewrite the previous using LINQ query.
+            XDocument documentXX = XDocument.Load("../../../catalogue.xml");
+
+            var oldAlbumsPricesUsingLinq = from album in documentXX.Descendants("album")
+                                           where int.Parse(album.Element("year").Value) < 2011
+                                           select album.Descendants("price").FirstOrDefault();
+            foreach (var price in oldAlbumsPricesUsingLinq)
+            {
+                Console.WriteLine(price.Value.Trim());
+            }
+
         }
     }
 }

@@ -1,0 +1,12 @@
+Misho
+Struma 1
+0812345678
+Nisho
+Struma 2
+0812345679
+Gisho
+Struma 3
+0812345680
+Grisho
+Struma 4
+0812345681
