@@ -52,15 +52,99 @@ __Advantages:__
 
 ####7. What are database integrity constraints and when are they used?
 
+Integrity constraints provide a mechanism for ensuring that data conforms to guidelines specified by the database administrator. The most common types of constraints include:
+
+* UNIQUE constraints to ensure that a given column is unique
+
+* NOT NULL constraints to ensure that no null values are allowed
+
+* FOREIGN KEY constraints to ensure that two keys share a primary key to foreign key relationship
+
+Constraints verify that the data conforms to a basic level of data consistency and correctness, preventing the introduction of dirty data.
+
 ####8. Point out the pros and cons of using indexes in a database.
+
+The indexing increases the disk space usage and reduces the performance of adding, deleting, and updating, but in most cases the benefit of indices for data retrieval greatly exceeds the disadvantages.
+* *__Pros:__*
+  * Fast searching
+  * Fast sorting
+* *__Cons:__*
+  * Slow insert
+  * Slow update
 
 ####9. What's the main purpose of the SQL language?
 
+SQL (Structured Query Language) is a special-purpose programming language designed for managing data held in a relational database management system (RDBMS), or for stream processing in a relational data stream management system (RDSMS).
+
+The main purpose of SQL is to provide a Structured way by which one can Query information in database using a standard Language.
+
 ####10. What are transactions used for?
-  * Give an example.
+
+A transaction symbolizes a unit of work performed within a database management system (or similar system) against a database, and treated in a coherent and reliable way independent of other transactions. A transaction generally represents any change in database.
+
+Transactions provide an "all-or-nothing" proposition, stating that each work-unit performed in a database must either complete in its entirety or have no effect whatsoever. Further, the system must isolate each transaction from other transactions, results must conform to existing constraints in the database, and transactions that complete successfully must get written to durable storage.
+
+There are four important properties of database transactions these are represented by acronym ACID and also called ACID properties or database transaction where:
+
+A stands for Atomicity, Atom is considered to be smallest particle which can not be broken into further pieces.database transaction has to be atomic means either all steps of transaction completes or none of them.
+
+C stands for Consistency, transaction must leave database in consistent state even if it succeed or rollback.
+
+I is for Isolation
+Two database transactions happening at same time should not affect each other and has consistent view of database. This is achieved by using isolation levels in database.
+
+D stands for Durability
+Data has to be persisted successfully in database once transaction completed successfully and it has to be saved from power outage or other threats. This is achieved by saving data related to transaction in more than one places along with database.
+
+*__Example:__*
+
+For this example we will assume we have an Account table which represent a Bank Account and we will transfer money from one account to another account
+
+Request: transfer 900$ from Account 9001 to 9002
+```
+start transaction
+select balance from Account where Account_Number='9001';
+select balance from Account where Account_Number='9002';
+update Account set balance=balance-900 here Account_Number='9001' ;
+update Account set balance=balance+900 here Account_Number='9002' ;
+commit; //if all sql queries succed
+rollback; //if any of Sql queries failed or error
   
 ####11. What is a NoSQL database?
 
+A NoSQL (originally referring to "non SQL" or "non relational") database provides a mechanism for storage and retrieval of data that is modeled in means other than the tabular relations used in relational databases.
+
+Motivations for this approach include: simplicity of design, simpler "horizontal" scaling to clusters of machines, which is a problem for relational databases, and finer control over availability. The data structures used by NoSQL databases (e.g. key-value, graph, or document) differ slightly from those used by default in relational databases, making some operations faster in NoSQL and others faster in relational databases. The particular suitability of a given NoSQL database depends on the problem it must solve. Sometimes the data structures used by noSQL databases are also viewed as "more flexible" than relational database tables.
+
+NoSQL databases are increasingly used in big data and real-time web applications. NoSQL systems are also sometimes called "Not only SQL" to emphasize that they may support SQL-like query languages.
+
 ####12. Explain the classical non-relational data models.
 
+*  *__Key-Value stores:__* Typically, these DMS store items as alpha-numeric identifiers (keys) and associated values in simple, standalone tables (referred to as ―hash tables‖). The values may be simple text strings or more complex lists and sets. Data searches can usually only be performed against keys, not values, and are limited to exact matches.
+*  *__Document databases__* document databases were, as their name implies, designed to manage and store documents. These documents are encoded in a standard data exchange format such as XML, JSON (Javascript Option Notation) or BSON (Binary JSON). Unlike the simple key-value stores described above, the value column in document databases contains semi-structured data – specifically attribute name/value pairs. A single column can house hundreds of such attributes, and the number and type of attributes recorded can vary from row to row. Also, unlike simple key-value stores, both keys and values are fully searchable in document databases.
+*  *__Wide-Column (or Column-Family) Stores (BigTable-implementations):__* Like document databases, Wide-Column (or Column-Family) stores (hereafter WC/CF) employ a distributed, column-oriented data structure that accommodates multiple attributes per key.
+*  *__Graph databases:__* Graph databases replace relational tables with structured relational graphs of interconnected key-value pairings. They are similar to object-oriented databases as the graphs are represented as an object-oriented network of nodes (conceptual objects), node relationships (―edges‖) and properties (object attributes expressed as key-value pairs). They are the only of the four NoSQL types discussed here that concern themselves with relations, and their focus on visual representation of information makes them more human-friendly than other NoSQL DMS.
+
 ####13. Give few examples of NoSQL databases and their pros and cons.
+
+* *__Casssandra:__* The Apache Cassandra project emerged out of Facebook in 2008 and is now a fully grown tool used for many large data stores and integrated with other popular tools like Solr. The mechanism offers a hybrid mixture of a column-oriented database with a key/value store. Not every row must have each column, but the columns are grouped into families that make them feel like tables. The system offers a tunable amount of replication and consistency. In one recent test, Netflix built a cluster of 288 nodes and found writes scaled linearly.
+* *__CouchDB:__* CouchDB data arrives in JavaScript's JSON format, its queries are written in JavaScript, and the data goes back in JSON. It's a database built for the Web and the people who program it. (Sidenote: Some use CouchDB offline in the background of mobile apps.) CouchDB stores key/value pairs and propagates them over the nodes, offering eventual consistency. There's also a more commercial cousin, Couchbase, that offers caching, better sharding, incremental queries, better indices, and a few more features.
+* *__Oracle NoSQL:__* The wizards at Oracle took one look at the NoSQL movement and decided they needed to have a product that would split up key/value pairs across a collection of nodes. The resulting Oracle NoSQL offers a flexible amount of transaction protection that can range from acknowledging the data is stored on one node to waiting until it is successfully backed up across the network.
+* *__MongoDB:__* MongoDB has all of the classic features that define NoSQL: key/value storage, JavaScript formatting, and flexible replication for sharding across nodes. (Sharding is illustrated.) The data is written with a philosophy MongoDB calls multiversion concurrency control, a structure that keeps older versions of the data around to help keep consistency in complicated transactions. The user base is large, and there is a wide selection of ancillary tools, no doubt thanks to the open source option (strict AGPL).
+* *__Hadoop (HBase):__* While most people think of Hadoop and all of its tools as a mechanism for harnessing the power of many machines, Hadoop also includes a database, HBase, that spreads data out among the nodes. The map/reduce structure of Hadoop is well-suited for complicated computational jobs or queries that are farmed out to each node. The field is growing, and new databases for each node like Accumulo are enhancing the Hadoop platform.
+* *__DynamoDB:__* Amazon Web Services offers more ways to store data than there are fingers on one hand. DynamoDB is the NoSQL solution that takes key/value pairs and spreads them out across servers in three different zones where all the data is stored on SSDs. If you anticipate more demand for the traffic, DynamoDB will add more servers behind the scenes.
+
+*__Pros and Cons:__*
+
+* *__Pros:__*
+  * It's Open Source - Open source products provide developers with some great benefits, notably their no-cost status. Other benefits: open-source software tends to be more reliable, secure, and faster to deploy than proprietary alternatives.
+  * Elastic Scaling - NoSQL replaces the old 'scale up' mantra of database managers with a new one: 'scale out.' Instead of adding bigger servers to handle more data load, a NoSQL database allows a company to distribute the load across multiple hosts as the load increases.
+  * Different NoSQL DBs for Different Projects - MongoDB and Redis are good choices for storing frequently-written, rarely read statistical data, such as a web hit counter. Hadoop, a freeform, distributed DB does a good job of storing Big Data such as weather stats or business analytics work. Memcache, a transient DB, excels at storing web sessions, locks, and short-term stats). Cassandra and Riak (automatically clustered, redundant stores) perform well in environments with high availability apps, when maximum uptime is vital.
+  * NoSQL’s Impressive Implementations - Companies such as Amazon, the BBC, Facebook and Google rely on NoSQL DBs.
+  * NoSQL Flies High in the Cloud - NoSQL and the cloud are a natural fit. Today’s servers are inexpensive and can easily be scaled up on demand using a service such as Amazon EC2. Like all cloud technology, EC2 is based on virtualization. The weak link of virtualization is I/O performance, with memory and CPU being the strong links. NoSQL databases mostly use memory over disk as the primary write location – thereby preventing inconsistent I/O performance. And since NoSQL datastores typically leverage horizontal scalability via partitioning, they are able to take advantage of the cloud’s elastic provisioning.
+* *__Cons:__* 
+  * Open Source can Mean Spotty Support for Enterprises
+  * Not Mature Enough for Enterprises
+  * Business Intelligence Limitations
+  * Lack of Expertise
+  * Compatibility Issues
