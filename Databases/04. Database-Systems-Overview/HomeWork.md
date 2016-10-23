@@ -109,7 +109,7 @@ update Account set balance=balance-900 here Account_Number='9001' ;
 update Account set balance=balance+900 here Account_Number='9002' ;
 commit; //if all sql queries succed
 rollback; //if any of Sql queries failed or error
-  
+```
 ####11. What is a NoSQL database?
 
 A NoSQL (originally referring to "non SQL" or "non relational") database provides a mechanism for storage and retrieval of data that is modeled in means other than the tabular relations used in relational databases.
