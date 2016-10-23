@@ -4,6 +4,7 @@
 1.  What database models do you know?
 
 * *__Hierarchical (tree)__* where the data is organized into a tree-like structure, implying a single parent for each record.
+* *__Network model__*  which expands upon the __hierarchical structure__, allowing many-to-many relationships in a tree-like structure that allows multiple parents.
 
 1.  Which are the main functions performed by a Relational Database Management System (RDBMS)?
 1.  Define what is "table" in database terms.
