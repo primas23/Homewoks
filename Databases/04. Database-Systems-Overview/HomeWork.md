@@ -1,9 +1,10 @@
 ## Database Systems - Overview
 ### _Homework_
 
-#### Answer following questions in Markdown format (`.md` file)
-
 1.  What database models do you know?
+
+* *__Hierarchical (tree):__*
+
 1.  Which are the main functions performed by a Relational Database Management System (RDBMS)?
 1.  Define what is "table" in database terms.
 1.  Explain the difference between a primary and a foreign key.
