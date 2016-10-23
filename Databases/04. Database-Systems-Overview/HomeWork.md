@@ -5,6 +5,7 @@
 
 * *__Hierarchical (tree)__* where the data is organized into a tree-like structure, implying a single parent for each record.
 * *__Network model__*  which expands upon the __hierarchical structure__, allowing many-to-many relationships in a tree-like structure that allows multiple parents.
+* *__Relational model:__* The basic data structure of the relational model is the table, where information about a particular entity (say, an employee) is represented in rows (also called tuples) and columns. Thus, the "relation" in "relational database" refers to the various tables in the database; a relation is a set of tuples
 
 1.  Which are the main functions performed by a Relational Database Management System (RDBMS)?
 1.  Define what is "table" in database terms.
