@@ -39,9 +39,17 @@ This type of relationship is not common because most information related in this
   * Store information that applies only to a subset of the main table.
 
 ####6. When is a certain database schema normalized?
+Database normalization (or normalisation) is the process of organizing the columns (attributes) and tables (relations) of a relational database to minimize data redundancy.
 
-  * What are the advantages of normalized databases?
-  
+Normalization involves decomposing a table into less redundant (and smaller) tables without losing information; defining foreign keys in the old table referencing the primary keys of the new ones. The objective is to isolate data so that additions, deletions, and modifications of an attribute can be made in just one table and then propagated through the rest of the database using the defined foreign keys.
+
+__Advantages:__
+* Smaller database: By eliminating duplicate data, you will be able to reduce the overall size of the database.
+* Better performance:
+  * Narrow tables: Having more fine-tuned tables allows your tables to have less columns and allows you to fit more records per data page.
+  * Fewer indexes per table mean faster maintenance tasks such as index rebuilds.
+  * Only join tables that you need.
+
 ####7. What are database integrity constraints and when are they used?
 
 ####8. Point out the pros and cons of using indexes in a database.
