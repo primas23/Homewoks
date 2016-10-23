@@ -19,9 +19,14 @@
 
 ####3. Define what is "table" in database terms.
 
-*  Database table A table is a collection of related data held in a structured format within a database. It consists of fields (columns), and rows.
+* Database table A table is a collection of related data held in a structured format within a database. It consists of fields (columns), and rows.
 
 ####4. Explain the difference between a primary and a foreign key.
+
+* The __primary key__ consists of one or more columns whose data contained within is used to uniquely identify each row in the table.  You can think of the primary key as an address.  If the rows in a table were mailboxes, then the primary key would be the listing of street addresses.
+* A __foreign key__ is a set of one or more columns in a table that refers to the primary key in another table.  There isn’t any special code, configurations, or table definitions you need to place to officially “designate” a foreign key.
+
+
 ####5. Explain the different kinds of relationships between tables in relational databases.
 ####6. When is a certain database schema normalized?
   * What are the advantages of normalized databases?
