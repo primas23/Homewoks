@@ -176,3 +176,59 @@ EXEC [dbo].[upsCalculate] @accountId = 1, @interesRate = 3.5
 ```
 
 #### 5. Add two more stored procedures `WithdrawMoney(AccountId, money)` and `DepositMoney(AccountId, money)` that operate in transactions.
+```
+USE [TSqlHowework]
+GO
+
+CREATE PROCEDURE usp_WithdrawMoney(@accountId int,@sum money) 
+    AS
+		UPDATE Accounts 
+		SET Balance = Balance - @sum
+		WHERE PersonId=@accountId 
+		AND Balance > @sum
+GO
+
+EXEC usp_WithdrawMoney 1000
+GO
+
+CREATE PROCEDURE usp_DepositMoney(@accountId int,@sum money) 
+	AS
+		UPDATE Accounts 
+		SET Balance += @sum
+		WHERE PersonId=@accountId 
+GO
+
+EXEC usp_DepositMoney 100000
+GO
+```
+
+#### 6. Create another table – `Logs(LogID, AccountID, OldSum, NewSum)`.
+```
+USE [TSqlHowework]
+GO
+
+CREATE TABLE Logs(
+    Id int PRIMARY KEY IDENTITY(0,1),
+    AccountId int FOREIGN KEY REFERENCES Accounts(Id),
+    OldSum money NOT NULL,
+    NewSum money NOT NULL
+)
+GO
+```
+*	Add a trigger to the `Accounts` table that enters a new entry into the `Logs` table every time the sum on an account changes.
+```
+USE [TSqlHowework]
+GO
+
+CREATE TRIGGER trg_Accounts_Insert 
+ON Accounts
+FOR UPDATE 
+AS
+DECLARE @beforeTransactionSum money;
+SELECT @beforeTransactionSum =  Balance FROM deleted
+
+INSERT INTO Logs(AccountId,OldSum,NewSum)	
+SELECT Id , @beforeTransactionSum , Balance FROM inserted
+PRINT('trg_Accounts_Insert fired!')
+GO
+```
