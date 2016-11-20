@@ -42,7 +42,7 @@ namespace Dealership.Engine
         private ICollection<IUser> users;
         private IUser loggedUser;
 
-        private DealershipEngine()
+        public DealershipEngine()
         {
             this.factory = new DealershipFactory();
             this.users = new List<IUser>();

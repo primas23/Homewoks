@@ -54,5 +54,9 @@
         // Added additionally
         public const string PropertyCannotBeNull = "{0} cannot be null!";
 
+        //Ninject constants
+        public const string CarName = "Car";
+        public const string MotorcycleName = "Motorcycle";
+        public const string TruckName = "Truck";
     }
 }
