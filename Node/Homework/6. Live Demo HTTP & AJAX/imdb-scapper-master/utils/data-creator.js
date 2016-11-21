@@ -42,14 +42,22 @@ function getMoviesFromUrl(url) {
         });
 }
 
-module.exports.getMoviesFromUrl = (genres, pageCount) => {    
+module.exports.insertMoviesInDb = (genres, pageCount) => {    
     genres.forEach(genre => {
     for (let i = 0; i < constants.pagesCount; i += 1) {
         let url = urlGenerator.getSimpleMovieUrl(genre, i+1);        
         urlsQueue.push(url);
-    }
-});    
+        }
+    });    
 
-Array.from({ length: pageCount })
-    .forEach(() => getMoviesFromUrl(urlsQueue.pop()));
+    Array.from({ length: pageCount })
+        .forEach(() => getMoviesFromUrl(urlsQueue.pop()));
+};
+
+module.exports.InserMovieDetailsInDb = (genres, pageCount) => {    
+    // Nqmah vreme da go napravq ;(
+};
+
+module.exports.InserActorInDb = (genres, pageCount) => {    
+    // Nqmah vreme da go napravq ;(
 };

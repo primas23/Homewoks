@@ -2,7 +2,7 @@
 'use strict';
 
 const constants = require("./config/constants");
-const htmlDataExtractor = require("./utils/html-data-extractor");
+const dataCreator = require("./utils/data-creator");
 const asyncPagesCount = 15;
 
-htmlDataExtractor.getMoviesFromUrl(constants.genres, asyncPagesCount);
+dataCreator.insertMoviesInDb(constants.genres, asyncPagesCount);
