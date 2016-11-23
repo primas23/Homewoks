@@ -7,7 +7,7 @@ namespace _03.IncreasingSort
     {
         public static void Main()
         {
-            Console.WriteLine("Enter positive numbers. To break, enter blank line: ");
+            Console.WriteLine("Enter numbers. To break, enter blank line: ");
 
             List<int> list = new List<int>();
 

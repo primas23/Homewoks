@@ -8,7 +8,7 @@ namespace _05.RemovesNegative
     {
         public static void Main()
         {
-            Console.WriteLine("Enter positive numbers. To break, enter blank line: ");
+            Console.WriteLine("Enter numbers. To break, enter blank line: ");
 
             IList<int> sequence = new List<int>();
 

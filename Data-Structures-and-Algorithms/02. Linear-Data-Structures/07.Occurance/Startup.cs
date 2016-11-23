@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace _04.LongestSubsequenceEqualNumbers
+namespace _07.Occurance
 {
     public class Startup
     {
@@ -31,37 +29,39 @@ namespace _04.LongestSubsequenceEqualNumbers
                 sequence.Add(number);
             }
 
-            Console.WriteLine("The longest sequence is the number {0} wich is repeated {1} times!", GetLongestSequence(sequence).Key, GetLongestSequence(sequence).Value);
+            int[] array = sequence.ToArray();
+
+            Dictionary<int, int> occurances = GetOccurances(array);
+            
+            foreach (KeyValuePair<int, int> pair in occurances.OrderBy(o => o.Key))
+            {
+                Console.WriteLine(pair.Key + "->" + pair.Value);
+            }
         }
 
         /// <summary>
-        /// Gets the longest sequence. If no repeat returns the first number
+        /// Gets the occurances.
         /// </summary>
         /// <param name="sequece">The sequece.</param>
-        /// <returns>Key value pair with key equals to the number and the value equals to the times the number is repeated</returns>
+        /// <returns></returns>
         /// <exception cref="System.ArgumentNullException">You must supply sequence!</exception>
-        public static KeyValuePair<int, int> GetLongestSequence(IList<int> sequece)
+        public static Dictionary<int, int> GetOccurances(int[] sequece)
         {
             if (sequece == null)
             {
                 throw new ArgumentNullException("You must supply sequence!");
             }
 
-            int number = 0;
-            int numberCount = 0;
+            Dictionary<int, int> dictionary = new Dictionary<int, int>();
 
             foreach (int numberInSeq in sequece.Distinct())
             {
                 int numberInSeqCount = sequece.Count(i => i == numberInSeq);
 
-                if (numberCount < numberInSeqCount)
-                {
-                    number = numberInSeq;
-                    numberCount = numberInSeqCount;
-                }
+                dictionary.Add(numberInSeq, numberInSeqCount);
             }
 
-            return new KeyValuePair<int, int>(number, numberCount);
+            return dictionary;
         }
     }
 }

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace _02.ReversesStack
+namespace _06.RemoveOddOccurance
 {
     public class Startup
     {
@@ -9,7 +10,7 @@ namespace _02.ReversesStack
         {
             Console.WriteLine("Enter numbers. To break, enter blank line: ");
 
-            Stack<int> stack = new Stack<int>();
+            IList<int> sequence = new List<int>();
 
             while (true)
             {
@@ -25,13 +26,23 @@ namespace _02.ReversesStack
                 }
 
                 int number = int.Parse(input);
-                stack.Push(number);
+                sequence.Add(number);
+            }
+            
+            IEnumerable<IGrouping<int, int>> groups = sequence.GroupBy(num => num);
+
+            foreach (IGrouping<int, int> group in groups)
+            {
+                if (group.Count() % 2 != 0)
+                {
+                    while (sequence.Contains(group.Key))
+                    {
+                        sequence.Remove(group.Key);
+                    }
+                }
             }
 
-            while (stack.Count != 0)
-            {
-                Console.WriteLine(stack.Pop());
-            }
+            Console.WriteLine(string.Join(", ", sequence));
         }
     }
 }
