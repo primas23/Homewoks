@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.RemoveOddOccurance", "06
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.Occurance", "07.Occurance\07.Occurance.csproj", "{E2056EE8-0D57-4A0B-901D-80DFEAE63C2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.Majorant", "08.Majorant\08.Majorant.csproj", "{C0B57EFF-05C2-49A0-BB2D-62B5C42C3392}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.Sequnce", "09.Sequnce\09.Sequnce.csproj", "{B51C4A79-801D-4DAF-BF9F-70BC0BBD635E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{E2056EE8-0D57-4A0B-901D-80DFEAE63C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2056EE8-0D57-4A0B-901D-80DFEAE63C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2056EE8-0D57-4A0B-901D-80DFEAE63C2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0B57EFF-05C2-49A0-BB2D-62B5C42C3392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0B57EFF-05C2-49A0-BB2D-62B5C42C3392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0B57EFF-05C2-49A0-BB2D-62B5C42C3392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0B57EFF-05C2-49A0-BB2D-62B5C42C3392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B51C4A79-801D-4DAF-BF9F-70BC0BBD635E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B51C4A79-801D-4DAF-BF9F-70BC0BBD635E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B51C4A79-801D-4DAF-BF9F-70BC0BBD635E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B51C4A79-801D-4DAF-BF9F-70BC0BBD635E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
