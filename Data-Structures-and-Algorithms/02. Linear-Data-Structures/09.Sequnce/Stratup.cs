@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace _09.Sequnce
 {
-    public class Program
+    public class Stratup
     {
         public static void Main()
         {
