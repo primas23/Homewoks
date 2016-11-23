@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace _03.IncreasingSort
+namespace _05.RemovesNegative
 {
     public class Startup
     {
@@ -9,7 +10,7 @@ namespace _03.IncreasingSort
         {
             Console.WriteLine("Enter positive numbers. To break, enter blank line: ");
 
-            List<int> list = new List<int>();
+            IList<int> sequence = new List<int>();
 
             while (true)
             {
@@ -25,11 +26,14 @@ namespace _03.IncreasingSort
                 }
 
                 int number = int.Parse(input);
-                list.Add(number);
+                sequence.Add(number);
             }
 
-            list.Sort();
-            list.ForEach(Console.WriteLine);
+            List<int> sequenceWithoutNegatives = sequence
+                .Where(i => i > 0)
+                .ToList();
+
+            sequenceWithoutNegatives.ForEach(Console.WriteLine);
         }
     }
 }
