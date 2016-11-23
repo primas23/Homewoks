@@ -1,38 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _10.Operations
 {
     public class Startup
     {
+        private static string result = string.Empty;
+
         public static void Main()
         {
-            //Console.WriteLine("N =");
-            int n = 5;//int.Parse(Console.ReadLine());
-            
-            //Console.WriteLine("M =");
-            int m = 16;//int.Parse(Console.ReadLine());
+            int n = 5;
+            int m = 16;
+           
+            Operate(n, m, n.ToString());
 
-
+            Console.WriteLine(result);
         }
 
-
-        public static int PlusOne(int number)
+        public static void Operate(int sofar, int m, string concat)
         {
-            return number + 1;
-        }
+            if (sofar >= m)
+            {
+                if (sofar == m)
+                {
+                    if (result == string.Empty)
+                    {
+                        result = concat;
+                    }
+                    else if (concat.Length < result.Length)
+                    {
+                        result = concat;                        
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
 
-        public static int PlusTwo(int number)
-        {
-            return number + 2;
-        }
+            int plusOne = sofar + 1;
+            int plusTwo = sofar + 2;
+            int multiplyByTwo = sofar * 2;
 
-        public static int MultiplyByTwo(int number)
-        {
-            return number + 2;
+            Operate(plusOne, m, concat + "->" + plusOne);
+            Operate(plusTwo, m, concat + "->" + plusTwo);
+            Operate(multiplyByTwo, m, concat + "->" + multiplyByTwo);
         }
     }
 }
+
