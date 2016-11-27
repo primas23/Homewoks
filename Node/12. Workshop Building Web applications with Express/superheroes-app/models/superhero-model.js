@@ -1,11 +1,16 @@
 /* globals require module */
 
+function validator (v) {
+  return v.length > 5;
+}
+
 const mongoose = require("mongoose");
 
 let schema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        validate: [validator, 'my error type']
     },
     secretIdentity: {
         type: String,
@@ -13,7 +18,7 @@ let schema = new mongoose.Schema({
         unique : true
     },
     alignment: {
-        type: String,
+        enum: ["good", "evil", "neutral"],
         required: true
     },
     story: {
