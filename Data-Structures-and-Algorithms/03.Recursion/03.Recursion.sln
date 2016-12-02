@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.SimulatesExecutionOfNLoops", "01.SimulatesExecutionOfNLoops\01.SimulatesExecutionOfNLoops.csproj", "{35AE63C3-3CE2-4146-A487-BEA3472D9F7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.CombinationsWithDuplicates", "02.CombinationsWithDuplicates\02.CombinationsWithDuplicates.csproj", "{AC2391D8-EC17-467E-876F-0723D1885EA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35AE63C3-3CE2-4146-A487-BEA3472D9F7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35AE63C3-3CE2-4146-A487-BEA3472D9F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35AE63C3-3CE2-4146-A487-BEA3472D9F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35AE63C3-3CE2-4146-A487-BEA3472D9F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC2391D8-EC17-467E-876F-0723D1885EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2391D8-EC17-467E-876F-0723D1885EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2391D8-EC17-467E-876F-0723D1885EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2391D8-EC17-467E-876F-0723D1885EA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
