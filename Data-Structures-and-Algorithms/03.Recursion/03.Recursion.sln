@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.SimulatesExecutionOfNLoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.CombinationsWithDuplicates", "02.CombinationsWithDuplicates\02.CombinationsWithDuplicates.csproj", "{AC2391D8-EC17-467E-876F-0723D1885EA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12.EightQueensPuzzle", "12.EightQueensPuzzle\12.EightQueensPuzzle.csproj", "{075FAC19-D64D-4508-9A73-C4A431752036}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AC2391D8-EC17-467E-876F-0723D1885EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC2391D8-EC17-467E-876F-0723D1885EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC2391D8-EC17-467E-876F-0723D1885EA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{075FAC19-D64D-4508-9A73-C4A431752036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{075FAC19-D64D-4508-9A73-C4A431752036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{075FAC19-D64D-4508-9A73-C4A431752036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{075FAC19-D64D-4508-9A73-C4A431752036}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
