@@ -6,16 +6,16 @@ namespace OddNumber
     {
         public static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
+            int numberOfRows = int.Parse(Console.ReadLine());
 
-            long res = 0L;
+            long result = 0L;
 
-            for (var i = 0; i < n; i++)
+            for (var i = 0; i < numberOfRows; i++)
             {
-                res = res ^ long.Parse(Console.ReadLine());
+                result = result ^ long.Parse(Console.ReadLine());
             }
 
-            Console.WriteLine(res);
+            Console.WriteLine(result);
         }
     }
 }
