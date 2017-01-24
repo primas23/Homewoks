@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.PrintName", "01.PrintName\01.PrintName.csproj", "{BCE39288-B56F-477C-9E79-2BADB9EB7456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.HelloAsp", "02.HelloAsp\02.HelloAsp.csproj", "{D6459C6B-D799-4C13-A7D5-ED679CB23759}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCE39288-B56F-477C-9E79-2BADB9EB7456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE39288-B56F-477C-9E79-2BADB9EB7456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE39288-B56F-477C-9E79-2BADB9EB7456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE39288-B56F-477C-9E79-2BADB9EB7456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6459C6B-D799-4C13-A7D5-ED679CB23759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6459C6B-D799-4C13-A7D5-ED679CB23759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6459C6B-D799-4C13-A7D5-ED679CB23759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6459C6B-D799-4C13-A7D5-ED679CB23759}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
